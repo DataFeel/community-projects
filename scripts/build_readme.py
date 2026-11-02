@@ -65,58 +65,85 @@ def load_data():
 
 
 def fmt_date(iso):
-    return iso[:10] if iso else ""
+    # Non-breaking hyphens keep the date on one line in narrow table columns.
+    return iso[:10].replace("-", "\u2011") if iso else ""
+
+
+CODE_BADGE = "https://img.shields.io/badge/Code-24292f?style=flat&logo=github&logoColor=white"
+DEMO_BADGE = "https://img.shields.io/badge/Demo-2E97A8?style=flat"
+ARCHIVED_BADGE = "https://img.shields.io/badge/Archived-8a8a8a?style=flat"
+
+
+def cell(text):
+    """Make text safe for a single Markdown table cell."""
+    return " ".join(str(text).split()).replace("|", "\\|")
+
+
+def anchor(heading):
+    """GitHub's anchor for a heading: lowercase, punctuation dropped, spaces to hyphens."""
+    slug = re.sub(r"[^\w\- ]", "", heading.lower())
+    return "#" + slug.replace(" ", "-")
 
 
 def render_member(m):
-    name = m.get("name", "").strip()
-    links = []
+    name = cell(m.get("name", ""))
     if m.get("github"):
-        links.append(f"[GitHub](https://github.com/{m['github']})")
+        name = f"[{name}](https://github.com/{m['github']})"
     if m.get("linkedin"):
-        links.append(f"[LinkedIn]({m['linkedin']})")
-    return f"{name} ({' · '.join(links)})" if links else name
+        name += f" <sub>[LinkedIn]({m['linkedin']})</sub>"
+    return name
 
 
 def render_curated(projects):
     if not projects:
         return "_No curated projects yet._\n"
 
-    lines = []
     events = []
     for p in projects:
         if p["event"] not in events:
             events.append(p["event"])
 
+    lines = []
+    if len(events) > 1:
+        jumps = " · ".join(f"[{e}]({anchor(e)})" for e in events)
+        lines.append(f"**Jump to:** {jumps}\n")
+
     for event in events:
         lines.append(f"### {event}\n")
+        lines.append("| Project | What it does | Team | Links | Updated |")
+        lines.append("| --- | --- | --- | :---: | --- |")
         for p in (p for p in projects if p["event"] == event):
             meta = gh_get(f"/repos/{p['repo']}")
-            title = f"#### {p['name']}"
+            code_url = f"https://github.com/{p['repo']}"
+
+            name = cell(p["name"])
+            project = f"**[{name}]({code_url})**" if meta else f"**{name}**"
+            tags = []
             if p.get("featured"):
-                title += " · Featured"
-            lines.append(title + "\n")
-
+                tags.append("★ Featured")
             if p.get("track"):
-                lines.append(f"*{p['track']} track*\n")
+                tags.append(f"{cell(p['track'])} track")
+            if tags:
+                project += "<br><sub>" + " · ".join(tags) + "</sub>"
 
-            lines.append(" ".join(p["description"].split()) + "\n")
-
-            if p.get("team"):
-                team = ", ".join(render_member(m) for m in p["team"])
-                lines.append(f"**Team:** {team}  ")
+            team = "<br>".join(render_member(m) for m in p.get("team") or [])
 
             links = []
-            if p.get("demo"):
-                links.append(f"[Demo video]({p['demo']})")
             if meta is None:
-                links.append(f"Code: `{p['repo']}` (original repository is no longer available)")
+                links.append("<sub>Repo unavailable</sub>")
             else:
-                status = " (archived)" if meta.get("archived") else ""
-                links.append(f"[Code](https://github.com/{p['repo']}){status}")
-                links.append(f"Stars: {meta.get('stargazers_count', 0)}")
-                links.append(f"Last updated: {fmt_date(meta.get('pushed_at'))}")
-            lines.append("**Links:** " + " · ".join(links) + "\n")
+                links.append(f'<a href="{code_url}"><img src="{CODE_BADGE}" alt="Code"></a>')
+                if meta.get("archived"):
+                    links.append(f'<img src="{ARCHIVED_BADGE}" alt="Archived">')
+            if p.get("demo"):
+                links.append(f'<a href="{p["demo"]}"><img src="{DEMO_BADGE}" alt="Demo"></a>')
+
+            updated = fmt_date(meta.get("pushed_at")) if meta else ""
+            lines.append(
+                f"| {project} | {cell(p['description'])} | {team} | "
+                f"{'<br>'.join(links)} | {updated} |"
+            )
+        lines.append("")
     return "\n".join(lines) + "\n"
 
 
@@ -153,14 +180,15 @@ def render_discovered(repos, topic):
     if not repos:
         return f"_No other repositories tagged `{topic}` yet._\n"
     lines = [
-        "| Project | Description | Stars | Last updated |",
-        "| --- | --- | --- | --- |",
+        "| Project | What it does | Links | Updated |",
+        "| --- | --- | :---: | --- |",
     ]
     for r in repos:
-        desc = (r.get("description") or "").replace("|", "\\|").replace("\n", " ")
         lines.append(
-            f"| [{r['full_name']}]({r['html_url']}) | {desc} | "
-            f"{r.get('stargazers_count', 0)} | {fmt_date(r.get('pushed_at'))} |"
+            f"| **[{cell(r['name'])}]({r['html_url']})**<br><sub>by {cell(r['owner']['login'])}</sub> | "
+            f"{cell(r.get('description') or '')} | "
+            f'<a href="{r["html_url"]}"><img src="{CODE_BADGE}" alt="Code"></a> | '
+            f"{fmt_date(r.get('pushed_at'))} |"
         )
     return "\n".join(lines) + "\n"
 
