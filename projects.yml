@@ -1,39 +1,20 @@
 # DataFeel Community Projects
-#
-# This file is the source of truth for the README.
-# Edit it, commit, and the README rebuilds automatically.
-# Repos tagged with the topic below are also discovered automatically.
+# Source of truth for the README. Edit, commit, and the README rebuilds.
+# Field notes: see CONTRIBUTING.md.
 
 settings:
-  # GitHub topic that teams add to their repos.
   topic: datafeel
-  # Owners whose repos should never appear in the auto-discovered list
   exclude_owners:
     - DataFeel
-  # Specific repos to hide from the auto-discovered list, as "owner/name".
   exclude_repos: []
 
-# Curated projects, shown first, grouped by event in the order listed here.
-# Put the newest event at the top.
-#
-# Fields:
-#   name         Project name (required)
-#   repo         "owner/name" on GitHub (required)
-#   event        Event name and year (required)
-#   track        Hackathon track (optional)
-#   description  One or two sentences: what it does and the problem it solves (required)
-#   demo         Demo video link (optional)
-#   team         List of teammates; each has name, plus optional github and linkedin
-#   featured     true to mark as a featured project (optional)
-
 projects:
-    - name: Haptic Ride
+  - name: Haptic Ride
     repo: raymondymmak/haptic-ride
     event: SF Tech Week INTERFACE hackathon 2026
     track: Touch
     description: >-
       Feel cars behind you and turn cues on your wrists while biking.
-    demo: 
     featured: true
     team:
       - name: Raymond Mak
