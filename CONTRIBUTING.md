@@ -28,11 +28,3 @@ Projects that others can learn from tend to have:
 ## Removal
 
 To remove or update your project, open an issue or remove the `datafeel` topic from your repository.
-
-## For maintainers
-
-- `projects.yml` is the source of truth for curated entries. Don't edit the generated section of `README.md` by hand; it's overwritten between the `PROJECTS:START` and `PROJECTS:END` markers.
-- To turn a submission issue into an entry, copy its fields into `projects.yml`, commit to `main`, and close the issue. The README rebuilds on push.
-- To rebuild manually, open the **Actions** tab, select **Update project list**, and click **Run workflow**.
-- If an original repository is deleted, its entry stays and is marked as unavailable. Decide case by case whether to remove it.
-- To run locally: `pip install pyyaml` then `GITHUB_TOKEN=<token> python scripts/build_readme.py`.
