@@ -1,0 +1,64 @@
+name: Submit a project
+description: Add a project built with the DataFeel Dev Kit to the community list.
+title: "[Project] "
+labels: ["project submission"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for building with DataFeel! Fill this out and we'll add your project to the list.
+        Everything here will be shown publicly on this page.
+  - type: input
+    id: name
+    attributes:
+      label: Project name
+    validations:
+      required: true
+  - type: input
+    id: repo
+    attributes:
+      label: GitHub repository
+      description: Public repository link, for example https://github.com/your-team/your-project
+    validations:
+      required: true
+  - type: input
+    id: event
+    attributes:
+      label: Event and year
+      description: For example, SF Tech Week Hackathon 2026. Leave blank if it wasn't built at an event.
+  - type: input
+    id: track
+    attributes:
+      label: Track
+      description: Optional.
+  - type: textarea
+    id: description
+    attributes:
+      label: What it does
+      description: One or two sentences on what the project does and the problem it solves.
+    validations:
+      required: true
+  - type: input
+    id: demo
+    attributes:
+      label: Demo video link
+      description: Optional. Make sure anyone with the link can view it.
+  - type: textarea
+    id: team
+    attributes:
+      label: Team members
+      description: One person per line, as Name, GitHub username, LinkedIn URL. GitHub and LinkedIn are optional.
+      placeholder: |
+        Jane Doe, janedoe, https://www.linkedin.com/in/janedoe
+        John Smith, jsmith
+    validations:
+      required: true
+  - type: checkboxes
+    id: consent
+    attributes:
+      label: Permission
+      options:
+        - label: Every teammate listed above agrees to be shown publicly on this page.
+          required: true
+        - label: The repository has the `datafeel` topic added.
+          required: false
