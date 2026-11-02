@@ -8,9 +8,8 @@ settings:
   # GitHub topic that teams add to their repos.
   topic: datafeel
   # Owners whose repos should never appear in the auto-discovered list
-  # (your own organization, so official repos don't show up as community work).
   exclude_owners:
-    - your-org-name
+    - DataFeel
   # Specific repos to hide from the auto-discovered list, as "owner/name".
   exclude_repos: []
 
@@ -28,18 +27,15 @@ settings:
 #   featured     true to mark as a featured project (optional)
 
 projects:
-  - name: Blind Samurai
-    repo: example-team/blind-samurai
-    event: SF Tech Week Hackathon 2026
+    - name: Haptic Ride
+    repo: raymondymmak/haptic-ride
+    event: SF Tech Week INTERFACE hackathon 2026
     track: Touch
     description: >-
-      A motion-based combat game for people with visual impairments.
-      A belt of DataFeel Dots signals where enemies are through vibration and temperature.
-    demo: https://example.com/demo-video
+      Feel cars behind you and turn cues on your wrists while biking.
+    demo: 
     featured: true
     team:
-      - name: Teammate One
-        github: teammate-one
-        linkedin: https://www.linkedin.com/in/teammate-one
-      - name: Teammate Two
-        github: teammate-two
+      - name: Raymond Mak
+        github: raymondymmak
+        linkedin: https://www.linkedin.com/in/raymondymmak/
