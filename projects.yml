@@ -1,0 +1,45 @@
+# DataFeel Community Projects
+#
+# This file is the source of truth for the README.
+# Edit it, commit, and the README rebuilds automatically.
+# Repos tagged with the topic below are also discovered automatically.
+
+settings:
+  # GitHub topic that teams add to their repos.
+  topic: datafeel
+  # Owners whose repos should never appear in the auto-discovered list
+  # (your own organization, so official repos don't show up as community work).
+  exclude_owners:
+    - your-org-name
+  # Specific repos to hide from the auto-discovered list, as "owner/name".
+  exclude_repos: []
+
+# Curated projects, shown first, grouped by event in the order listed here.
+# Put the newest event at the top.
+#
+# Fields:
+#   name         Project name (required)
+#   repo         "owner/name" on GitHub (required)
+#   event        Event name and year (required)
+#   track        Hackathon track (optional)
+#   description  One or two sentences: what it does and the problem it solves (required)
+#   demo         Demo video link (optional)
+#   team         List of teammates; each has name, plus optional github and linkedin
+#   featured     true to mark as a featured project (optional)
+
+projects:
+  - name: Blind Samurai
+    repo: example-team/blind-samurai
+    event: SF Tech Week Hackathon 2026
+    track: Touch
+    description: >-
+      A motion-based combat game for people with visual impairments.
+      A belt of DataFeel Dots signals where enemies are through vibration and temperature.
+    demo: https://example.com/demo-video
+    featured: true
+    team:
+      - name: Teammate One
+        github: teammate-one
+        linkedin: https://www.linkedin.com/in/teammate-one
+      - name: Teammate Two
+        github: teammate-two
