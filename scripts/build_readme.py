@@ -4,11 +4,6 @@ Reads curated projects from projects.yml, checks each repo on GitHub,
 discovers other repos tagged with the configured topic, and rewrites the
 section of README.md between the PROJECTS markers.
 
-Usage:
-    GITHUB_TOKEN=... python scripts/build_readme.py
-
-GITHUB_TOKEN is optional locally but strongly recommended: without it the
-GitHub API allows only 60 requests per hour.
 """
 
 import datetime as dt
@@ -57,10 +52,10 @@ def load_data():
     settings = data.get("settings") or {}
     projects = data.get("projects") or []
     for i, p in enumerate(projects, start=1):
-        for field in ("name", "repo", "event", "description"):
+        for field in ("name", "event", "description"):
             if not p.get(field):
                 sys.exit(f"projects.yml entry {i} is missing required field '{field}'.")
-        if p["repo"].count("/") != 1:
+        if p.get("repo") and p["repo"].count("/") != 1:
             sys.exit(f"projects.yml entry {i}: repo must look like 'owner/name', got '{p['repo']}'.")
     return settings, projects
 
@@ -72,6 +67,7 @@ def fmt_date(iso):
 
 CODE_BADGE = "https://img.shields.io/badge/Code-24292f?style=flat&logo=github&logoColor=white"
 DEMO_BADGE = "https://img.shields.io/badge/Demo-2E97A8?style=flat"
+PAPER_BADGE = "https://img.shields.io/badge/Paper-6E7781?style=flat"
 ARCHIVED_BADGE = "https://img.shields.io/badge/Archived-8a8a8a?style=flat"
 
 # Fixed column widths keep every row aligned, across all events.
@@ -133,25 +129,37 @@ def curated_rows(projects):
     for event in events:
         lines += group_row(esc(event))
         for p in (p for p in projects if p["event"] == event):
-            meta = gh_get(f"/repos/{p['repo']}")
-            code_url = f"https://github.com/{p['repo']}"
+            repo = p.get("repo")
+            meta = gh_get(f"/repos/{repo}") if repo else None
+            code_url = f"https://github.com/{repo}" if repo else ""
 
             name = f"<b>{esc(p['name'])}</b>"
-            project = link(code_url, name) if meta else name
+            # Link the name to the code, or to the paper or demo when there's no repo.
+            target = code_url if meta else (p.get("paper") or p.get("demo"))
+            project = link(target, name) if target else name
+            tags = []
+            if p.get("award"):
+                tags.append(esc(p["award"]))
             if p.get("track"):
-                project += f"<br><sub>{esc(p['track'])} track</sub>"
+                tags.append(f"{esc(p['track'])} track")
+            if tags:
+                project += "<br><sub>" + " · ".join(tags) + "</sub>"
 
             team = "<br>".join(render_member(m) for m in p.get("team") or [])
+            if p.get("affiliation"):
+                team += ("<br>" if team else "") + f"<sub>{esc(p['affiliation'])}</sub>"
 
             links = []
-            if meta is None:
+            if repo and meta is None:
                 links.append("<sub>Repo unavailable</sub>")
-            else:
+            elif meta:
                 links.append(badge(code_url, CODE_BADGE, "Code"))
                 if meta.get("archived"):
                     links.append(f'<img src="{ARCHIVED_BADGE}" alt="Archived">')
             if p.get("demo"):
                 links.append(badge(p["demo"], DEMO_BADGE, "Demo"))
+            if p.get("paper"):
+                links.append(badge(p["paper"], PAPER_BADGE, "Paper"))
 
             updated = fmt_date(meta.get("pushed_at")) if meta else ""
             lines += row([project, esc(p["description"]), team, "<br>".join(links), updated])
@@ -218,7 +226,7 @@ def render_table(projects, repos, topic):
 def main():
     settings, projects = load_data()
     topic = settings.get("topic", "datafeel")
-    curated_repos = {p["repo"].lower() for p in projects}
+    curated_repos = {p["repo"].lower() for p in projects if p.get("repo")}
 
     repos = discover(settings, curated_repos)
     body = [
