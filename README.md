@@ -16,7 +16,32 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for details.
 <!-- PROJECTS:START -->
 ## Featured projects
 
+### LA Tech Week MOLTEN Spatial Hackathon 2026
+
+#### FireDrill AR
+
+*Worldbuild track*
+
+Turns any real room into a mixed-reality fire drill, with spreading fire, banking smoke, exit signs, and an AI voice coach. DataFeel Dots on both wrists warm on the side the fire is on, buzz in the smoke, and cool at the safe exit.
+
+**Team:** Prakhar ([GitHub](https://github.com/prakhar2000)), Varnika, Eileen, Devaj, Emma  
+**Links:** [Demo video](https://firedrill-ar.vercel.app) · [Code](https://github.com/prakhar2000/FIreDrillAR) · Stars: 0 · Last updated: 2026-10-20
+
 ### SF Tech Week INTERFACE hackathon 2026
+
+#### Blind Samurai · Featured
+
+A sword-fighting game built for blind and low-vision players, where unseen monsters are tracked through 3D audio and touch. Four DataFeel Dots on the ribs, chest, and wrist buzz toward the enemy and heat up as it closes in.
+
+**Team:** MarkymarkLee ([GitHub](https://github.com/MarkymarkLee))  
+**Links:** [Code](https://github.com/MarkymarkLee/BlindSamurai) · Stars: 0 · Last updated: 2026-10-11
+
+#### Resonance
+
+Turns a music video into a full-body experience. A DataFeel Dot on the wrist warms and pulses to the beat, a 60 GHz radar lets you conduct the intensity with your hand, and a robot dances along.
+
+**Team:** KaushikSiva ([GitHub](https://github.com/KaushikSiva))  
+**Links:** [Demo video](https://youtu.be/7JQqd8YsqEc) · [Code](https://github.com/KaushikSiva/resonance) · Stars: 0 · Last updated: 2026-10-11
 
 #### Haptic Ride · Featured
 
