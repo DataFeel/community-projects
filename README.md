@@ -69,24 +69,24 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for details.
     <td align="left" valign="middle"></td>
   </tr>
   <tr>
-    <td align="left" valign="middle"><b>SyncFeel</b></td>
+    <td align="left" valign="middle"><a href="https://drive.google.com/file/d/1UCeFLymUgJbMlC3zeXD0z-mvc1IqwrpA/view"><b>SyncFeel</b></a></td>
     <td align="left" valign="middle">An untethered two-Dot bracelet that pulses vibration, light, and heat in rhythm to help the wearer focus during deep work or reset during breaks.</td>
     <td align="left" valign="middle">Sarah J. Pratt<br><sub>Simon Fraser University</sub></td>
-    <td align="center" valign="middle"></td>
+    <td align="center" valign="middle"><a href="https://drive.google.com/file/d/1UCeFLymUgJbMlC3zeXD0z-mvc1IqwrpA/view"><img src="https://img.shields.io/badge/Paper-6E7781?style=flat" alt="Paper"></a></td>
     <td align="left" valign="middle"></td>
   </tr>
   <tr>
-    <td align="left" valign="middle"><b>ElaStick</b></td>
+    <td align="left" valign="middle"><a href="https://drive.google.com/file/d/1LxdOdz47990w-PqiofTOqBZ-I7Svchz2/view"><b>ElaStick</b></a></td>
     <td align="left" valign="middle">A modular stick controller built around DataFeel Dots and elastic parts that senses pushing, tilting, pulling, and twisting, and answers with sound, vibration, light, and heat.</td>
     <td align="left" valign="middle">Ryosuke Mizushima<br><sub>Aoyama Gakuin University</sub></td>
-    <td align="center" valign="middle"></td>
+    <td align="center" valign="middle"><a href="https://drive.google.com/file/d/1LxdOdz47990w-PqiofTOqBZ-I7Svchz2/view"><img src="https://img.shields.io/badge/Paper-6E7781?style=flat" alt="Paper"></a></td>
     <td align="left" valign="middle"></td>
   </tr>
   <tr>
-    <td align="left" valign="middle"><b>ModalPlayground</b></td>
+    <td align="left" valign="middle"><a href="https://drive.google.com/file/d/1Oj-Ijmv8R7-1k_nj3q2XXlvLZIUmWm-u/view"><b>ModalPlayground</b></a></td>
     <td align="left" valign="middle">A collaborative tool for painting haptic zones onto a real room by walking through it. Indoor positioning tracks designers and visitors, and DataFeel Dots play each zone&#x27;s vibration, heat, and light.</td>
     <td align="left" valign="middle">Louis Badr<br><sub>Léonard de Vinci Pôle Universitaire</sub></td>
-    <td align="center" valign="middle"></td>
+    <td align="center" valign="middle"><a href="https://drive.google.com/file/d/1Oj-Ijmv8R7-1k_nj3q2XXlvLZIUmWm-u/view"><img src="https://img.shields.io/badge/Paper-6E7781?style=flat" alt="Paper"></a></td>
     <td align="left" valign="middle"></td>
   </tr>
   <tr>
@@ -132,10 +132,10 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for details.
     <td align="left" valign="middle"></td>
   </tr>
   <tr>
-    <td align="left" valign="middle"><b>HapticAudio Wear</b></td>
+    <td align="left" valign="middle"><a href="https://drive.google.com/file/d/1DQEBmdi2ska-gdHcdDCXvef2IOefVl8g/view"><b>HapticAudio Wear</b></a></td>
     <td align="left" valign="middle">Inspired by singing bowls, it turns the sound of a struck or rubbed bowl into vibration and warmth that travel across the body to draw attention inward.</td>
     <td align="left" valign="middle">Qi Chen<br><sub>Tsinghua University</sub></td>
-    <td align="center" valign="middle"></td>
+    <td align="center" valign="middle"><a href="https://drive.google.com/file/d/1DQEBmdi2ska-gdHcdDCXvef2IOefVl8g/view"><img src="https://img.shields.io/badge/Paper-6E7781?style=flat" alt="Paper"></a></td>
     <td align="left" valign="middle"></td>
   </tr>
   <tr>
@@ -167,10 +167,10 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for details.
     <td align="left" valign="middle"></td>
   </tr>
   <tr>
-    <td align="left" valign="middle"><b>ShoulderTap</b></td>
+    <td align="left" valign="middle"><a href="https://drive.google.com/file/d/1I1i1uAdbFz-60QEfNQ5pIZKFXchzhhGK/view"><b>ShoulderTap</b></a></td>
     <td align="left" valign="middle">A shoulder-worn navigation aid for people with visual impairments. A camera reads the surroundings, and vibration and heat across the shoulders signal the direction, distance, and motion of nearby obstacles.</td>
     <td align="left" valign="middle">Rushiraj Gadhvi<br><sub>Plaksha University</sub></td>
-    <td align="center" valign="middle"></td>
+    <td align="center" valign="middle"><a href="https://drive.google.com/file/d/1I1i1uAdbFz-60QEfNQ5pIZKFXchzhhGK/view"><img src="https://img.shields.io/badge/Paper-6E7781?style=flat" alt="Paper"></a></td>
     <td align="left" valign="middle"></td>
   </tr>
   <tr>
@@ -198,11 +198,11 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for details.
     <td colspan="5"><b>UT Social Impact BuildFest 2025</b></td>
   </tr>
   <tr>
-    <td align="left" valign="middle"><b>Feel Lit</b></td>
+    <td align="left" valign="middle"><a href="https://github.com/jil12/BuildFestTeam10"><b>Feel Lit</b></a></td>
     <td align="left" valign="middle">An e-book and audiobook companion that lets readers feel a character&#x27;s heartbeat in real time, with accessibility features and in-app tools to learn about and act on banned books.</td>
     <td align="left" valign="middle">Jaxon Dial<br>Mark Keubel<br>Jiyi Liu<br>Sophia Dargahi</td>
-    <td align="center" valign="middle"></td>
-    <td align="left" valign="middle"></td>
+    <td align="center" valign="middle"><a href="https://github.com/jil12/BuildFestTeam10"><img src="https://img.shields.io/badge/Code-24292f?style=flat&logo=github&logoColor=white" alt="Code"></a></td>
+    <td align="left" valign="middle">2026‑11‑02</td>
   </tr>
   <tr>
     <td align="left" valign="middle"><b>Pathos (Team Axos)</b></td>
