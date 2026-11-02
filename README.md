@@ -4,7 +4,7 @@ Projects built with the [DataFeel Dev Kit](https://datafeel.com) by students, re
 
 Each DataFeel Dot produces vibration, heat and cold, and light, and includes motion sensing. These projects show what people build when touch becomes an output.
 
-> These are community projects, maintained by their own teams. Code links point to the original repositories. For official sample code and documentation, see the DataFeel quick-start materials.
+> These are community projects, maintained by their own teams. Code links point to the original repositories. 
 
 ## Add your project
 
