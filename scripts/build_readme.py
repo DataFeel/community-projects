@@ -12,6 +12,7 @@ GitHub API allows only 60 requests per hour.
 """
 
 import datetime as dt
+import html
 import json
 import os
 import re
@@ -73,58 +74,72 @@ CODE_BADGE = "https://img.shields.io/badge/Code-24292f?style=flat&logo=github&lo
 DEMO_BADGE = "https://img.shields.io/badge/Demo-2E97A8?style=flat"
 ARCHIVED_BADGE = "https://img.shields.io/badge/Archived-8a8a8a?style=flat"
 
+# Fixed column widths keep every row aligned, across all events.
+COLUMNS = [
+    ("Project", "16%", "left"),
+    ("What it does", "44%", "left"),
+    ("Team", "16%", "left"),
+    ("Links", "10%", "center"),
+    ("Updated", "14%", "left"),
+]
 
-def cell(text):
-    """Make text safe for a single Markdown table cell."""
-    return " ".join(str(text).split()).replace("|", "\\|")
+
+def esc(text):
+    """Escape text for HTML and collapse whitespace."""
+    return html.escape(" ".join(str(text).split()))
 
 
-def anchor(heading):
-    """GitHub's anchor for a heading: lowercase, punctuation dropped, spaces to hyphens."""
-    slug = re.sub(r"[^\w\- ]", "", heading.lower())
-    return "#" + slug.replace(" ", "-")
+def link(url, text):
+    return f'<a href="{html.escape(url, quote=True)}">{text}</a>'
+
+
+def badge(url, img, alt):
+    return link(url, f'<img src="{img}" alt="{alt}">')
 
 
 def render_member(m):
-    name = cell(m.get("name", ""))
+    name = esc(m.get("name", ""))
     if m.get("github"):
-        name = f"[{name}](https://github.com/{m['github']})"
+        name = link(f"https://github.com/{m['github']}", name)
     if m.get("linkedin"):
-        name += f" <sub>[LinkedIn]({m['linkedin']})</sub>"
+        name += " <sub>" + link(m["linkedin"], "LinkedIn") + "</sub>"
     return name
 
 
-def render_curated(projects):
-    if not projects:
-        return "_No curated projects yet._\n"
+def row(cells):
+    out = ["  <tr>"]
+    for (_, _, align), content in zip(COLUMNS, cells):
+        out.append(f'    <td align="{align}" valign="middle">{content}</td>')
+    out.append("  </tr>")
+    return out
 
+
+def group_row(title, note=""):
+    note = f"<br><sub>{note}</sub>" if note else ""
+    return [
+        "  <tr>",
+        f'    <td colspan="{len(COLUMNS)}"><b>{title}</b>{note}</td>',
+        "  </tr>",
+    ]
+
+
+def curated_rows(projects):
     events = []
     for p in projects:
         if p["event"] not in events:
             events.append(p["event"])
 
     lines = []
-    if len(events) > 1:
-        jumps = " · ".join(f"[{e}]({anchor(e)})" for e in events)
-        lines.append(f"**Jump to:** {jumps}\n")
-
     for event in events:
-        lines.append(f"### {event}\n")
-        lines.append("| Project | What it does | Team | Links | Updated |")
-        lines.append("| --- | --- | --- | :---: | --- |")
+        lines += group_row(esc(event))
         for p in (p for p in projects if p["event"] == event):
             meta = gh_get(f"/repos/{p['repo']}")
             code_url = f"https://github.com/{p['repo']}"
 
-            name = cell(p["name"])
-            project = f"**[{name}]({code_url})**" if meta else f"**{name}**"
-            tags = []
-            if p.get("featured"):
-                tags.append("★ Featured")
+            name = f"<b>{esc(p['name'])}</b>"
+            project = link(code_url, name) if meta else name
             if p.get("track"):
-                tags.append(f"{cell(p['track'])} track")
-            if tags:
-                project += "<br><sub>" + " · ".join(tags) + "</sub>"
+                project += f"<br><sub>{esc(p['track'])} track</sub>"
 
             team = "<br>".join(render_member(m) for m in p.get("team") or [])
 
@@ -132,19 +147,15 @@ def render_curated(projects):
             if meta is None:
                 links.append("<sub>Repo unavailable</sub>")
             else:
-                links.append(f'<a href="{code_url}"><img src="{CODE_BADGE}" alt="Code"></a>')
+                links.append(badge(code_url, CODE_BADGE, "Code"))
                 if meta.get("archived"):
                     links.append(f'<img src="{ARCHIVED_BADGE}" alt="Archived">')
             if p.get("demo"):
-                links.append(f'<a href="{p["demo"]}"><img src="{DEMO_BADGE}" alt="Demo"></a>')
+                links.append(badge(p["demo"], DEMO_BADGE, "Demo"))
 
             updated = fmt_date(meta.get("pushed_at")) if meta else ""
-            lines.append(
-                f"| {project} | {cell(p['description'])} | {team} | "
-                f"{'<br>'.join(links)} | {updated} |"
-            )
-        lines.append("")
-    return "\n".join(lines) + "\n"
+            lines += row([project, esc(p["description"]), team, "<br>".join(links), updated])
+    return lines
 
 
 def discover(settings, curated_repos):
@@ -176,21 +187,32 @@ def discover(settings, curated_repos):
     return found
 
 
-def render_discovered(repos, topic):
+def discovered_rows(repos, topic):
     if not repos:
-        return f"_No other repositories tagged `{topic}` yet._\n"
-    lines = [
-        "| Project | What it does | Links | Updated |",
-        "| --- | --- | :---: | --- |",
-    ]
+        return []
+    title = f'Also tagged {link(f"https://github.com/topics/{topic}", f"<code>{esc(topic)}</code>")}'
+    lines = group_row(title, "Found automatically from repositories with this topic.")
     for r in repos:
-        lines.append(
-            f"| **[{cell(r['name'])}]({r['html_url']})**<br><sub>by {cell(r['owner']['login'])}</sub> | "
-            f"{cell(r.get('description') or '')} | "
-            f'<a href="{r["html_url"]}"><img src="{CODE_BADGE}" alt="Code"></a> | '
-            f"{fmt_date(r.get('pushed_at'))} |"
-        )
-    return "\n".join(lines) + "\n"
+        owner = r["owner"]["login"]
+        lines += row([
+            link(r["html_url"], f"<b>{esc(r['name'])}</b>"),
+            esc(r.get("description") or ""),
+            link(f"https://github.com/{owner}", esc(owner)),
+            badge(r["html_url"], CODE_BADGE, "Code"),
+            fmt_date(r.get("pushed_at")),
+        ])
+    return lines
+
+
+def render_table(projects, repos, topic):
+    if not projects and not repos:
+        return "_No projects yet._\n"
+    header = ["<table>", "  <tr>"]
+    for title, width, align in COLUMNS:
+        header.append(f'    <th width="{width}" align="{align}">{title}</th>')
+    header.append("  </tr>")
+    body = curated_rows(projects) + discovered_rows(repos, topic)
+    return "\n".join(header + body + ["</table>"]) + "\n"
 
 
 def main():
@@ -198,13 +220,10 @@ def main():
     topic = settings.get("topic", "datafeel")
     curated_repos = {p["repo"].lower() for p in projects}
 
+    repos = discover(settings, curated_repos)
     body = [
-        "## Featured projects\n",
-        render_curated(projects),
-        f"## More projects tagged `{topic}`\n",
-        f"Found automatically from repositories with the "
-        f"[`{topic}` topic](https://github.com/topics/{topic}).\n",
-        render_discovered(discover(settings, curated_repos), topic),
+        "## Projects\n",
+        render_table(projects, repos, topic),
         f"_List last rebuilt on {dt.date.today().isoformat()}._\n",
     ]
     generated = "\n".join(body)
