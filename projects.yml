@@ -61,3 +61,321 @@ projects:
       - name: Raymond Mak
         github: raymondymmak
         linkedin: https://www.linkedin.com/in/raymondymmak/
+
+  # UIST SIC 2025
+  - name: ASMRFeel
+    event: UIST 2025 Student Innovation Contest
+    paper: https://drive.google.com/file/d/1xAD48Jdsy0NF179BVIqOar9Ag4adbYv3/view?usp=sharing
+    description: >-
+      Brings touch to live ASMR streams. A pressure-sensitive surface captures the
+      performer's touch, and DataFeel Dots on the viewer's body recreate it as
+      stroking-like sensations through moving warmth and vibration.
+    affiliation: National Yang Ming Chiao Tung University
+    team:
+      - name: Cheng-Kai Tu
+
+  - name: SyncFeel
+    event: UIST 2025 Student Innovation Contest
+    # paper: copy the extended abstract link from the contest sheet
+    description: >-
+      An untethered two-Dot bracelet that pulses vibration, light, and heat in rhythm
+      to help the wearer focus during deep work or reset during breaks.
+    affiliation: Simon Fraser University
+    team:
+      - name: Sarah J. Pratt
+
+  - name: ElaStick
+    event: UIST 2025 Student Innovation Contest
+    # paper: copy the extended abstract link from the contest sheet
+    description: >-
+      A modular stick controller built around DataFeel Dots and elastic parts that
+      senses pushing, tilting, pulling, and twisting, and answers with sound,
+      vibration, light, and heat.
+    affiliation: Aoyama Gakuin University
+    team:
+      - name: Ryosuke Mizushima
+
+  - name: ModalPlayground
+    event: UIST 2025 Student Innovation Contest
+    # paper: copy the extended abstract link from the contest sheet
+    description: >-
+      A collaborative tool for painting haptic zones onto a real room by walking
+      through it. Indoor positioning tracks designers and visitors, and DataFeel Dots
+      play each zone's vibration, heat, and light.
+    affiliation: Léonard de Vinci Pôle Universitaire
+    team:
+      - name: Louis Badr
+
+  - name: Virtual Object Property Inference
+    event: UIST 2025 Student Innovation Contest
+    paper: https://drive.google.com/file/d/1t60017RZO5OftjseZl2cU0kB4IEab7Tt/view?usp=sharing
+    description: >-
+      Uses DataFeel vibration and temperature to convey a virtual object's weight
+      distribution, orientation, and material in VR, adding detail that controller
+      haptics alone can't.
+    affiliation: Dartmouth College
+    team:
+      - name: Himanshu Patil
+
+  - name: FeelWalker
+    event: UIST 2025 Student Innovation Contest
+    paper: https://drive.google.com/file/d/1nzakLL7jGb8CTgtwjQKP6A0cBzBYH2za/view?usp=sharing
+    description: >-
+      A navigation wearable for blind and low-vision users that guides with
+      vibration, heat, and light cues, and calms stress with rhythmic feedback.
+    affiliation: Simon Fraser University
+    team:
+      - name: Vidhi Aggarwal
+
+  - name: PhantomFeel Dots
+    event: UIST 2025 Student Innovation Contest
+    paper: https://drive.google.com/file/d/1ITGh2eJyWnayf2DAW1R2C9AIuv2_MCHb/view?usp=sharing
+    description: >-
+      Four DataFeel Dots on the cheeks and throat warm, cool, and vibrate as sensors
+      in the tableware detect eating and drinking, aiming to change how food tastes
+      and feels without changing the food.
+    affiliation: Aoyama Gakuin University
+    team:
+      - name: Yuma Kyogoku
+
+  # confirm
+  - name: SkyTouch
+    event: UIST 2025 Student Innovation Contest
+    paper: https://drive.google.com/file/d/16LAE0AMR0okB1koWNar_XIgVFXnMD3Jn/view?usp=sharing
+    description: >-
+      Helps drone pilots managing several aircraft stay calm and alert, with warmth
+      on the neck to steady stress and wrist vibration and light to flag critical alerts.
+    affiliation: University of Notre Dame
+    team:
+      - name: Johanna Olesk
+
+  - name: SkySymbiote
+    event: UIST 2025 Student Innovation Contest
+    paper: https://drive.google.com/file/d/1xMfe9B5ATw0pfCcoSe_wjS8Iw2QBqFuW/view?usp=sharing
+    description: >-
+      Pairs a drone pilot's heart rate with flight data, and uses AI agents to turn
+      them into vibration, light, and temperature on the skin, moving routine
+      information off overloaded screens.
+    affiliation: University of Notre Dame
+    team:
+      - name: Demetrius Hernandez
+
+  - name: TactTail
+    event: UIST 2025 Student Innovation Contest
+    paper: https://drive.google.com/file/d/18-dc28K6TeigF9eKcmiVdTDGKmoy7fsv/view?usp=sharing
+    description: >-
+      A wearable for two-way communication between people and dogs, combining
+      vibration, heat, and light cues with sensing of the dog's emotional state.
+    affiliation: KAIST
+    team:
+      - name: Rachel Kim
+
+  - name: HapticAudio Wear
+    event: UIST 2025 Student Innovation Contest
+    # paper: copy the extended abstract link from the contest sheet
+    description: >-
+      Inspired by singing bowls, it turns the sound of a struck or rubbed bowl into
+      vibration and warmth that travel across the body to draw attention inward.
+    affiliation: Tsinghua University
+    team:
+      - name: Qi Chen
+
+  - name: Emotional Feedback for Team Collaboration
+    event: UIST 2025 Student Innovation Contest
+    paper: https://drive.google.com/file/d/1ZGOuPttZqOgNXVDj_PAhTd9pFu5icnvG/view?usp=sharing
+    description: >-
+      Detects teammates' emotional states with EEG and shares them through
+      multimodal haptic feedback, so remote and high-pressure teams can sense how
+      each other feels.
+    affiliation: Southern University of Science and Technology
+    team:
+      - name: Weitao Jiang
+
+  - name: RitualResonate
+    event: UIST 2025 Student Innovation Contest
+    paper: https://drive.google.com/file/d/1Z8eoy8aOOTMWSeE67ZM_sKTNwT4GsT2v/view?usp=sharing
+    description: >-
+      An interactive hammer inspired by the Chinese bianzhong chime bells that turns
+      each strike into layered tactile feedback, exploring new ways to experience
+      traditional ritual music.
+    affiliation: Beihang University
+    team:
+      - name: Zixin Chen
+
+  - name: Pain by Numbers
+    event: UIST 2025 Student Innovation Contest
+    paper: https://drive.google.com/file/d/1_HFPWqYWLfwI3fKpzyAhbS384wSujyR4/view?usp=sharing
+    description: >-
+      A haptic interface and storytelling platform that helps people recognize and
+      describe early, low-to-medium pain, improving how patients and physicians
+      communicate about it.
+    affiliation: Harvard University
+    team:
+      - name: Peggy Yin
+
+  - name: Ga'u Echo
+    event: UIST 2025 Student Innovation Contest
+    paper: https://drive.google.com/file/d/1qYOUCUBtJcWfQ9U2Y1aoJb3CdOXQ0JSM/view?usp=sharing
+    description: >-
+      A wearable "digital shrine" that turns the heartbeat and body rhythms of
+      distant loved ones, and the wearer's own, into touch for remote emotional
+      connection.
+    team:
+      - name: Yiwei Zhao
+
+  - name: ShoulderTap
+    event: UIST 2025 Student Innovation Contest
+    # paper: copy the extended abstract link from the contest sheet
+    description: >-
+      A shoulder-worn navigation aid for people with visual impairments. A camera
+      reads the surroundings, and vibration and heat across the shoulders signal the
+      direction, distance, and motion of nearby obstacles.
+    affiliation: Plaksha University
+    team:
+      - name: Rushiraj Gadhvi
+
+  - name: Feeltograph
+    event: UIST 2025 Student Innovation Contest
+    paper: https://drive.google.com/file/d/11GJXUoYvrQUcG1wFGgZB_14U-ZkHLXQQ/view?usp=sharing
+    description: >-
+      A tactile camera interface that lets blind users take, center, and revisit
+      photos independently, with haptic cues for framing and touch-based emotional tags.
+    affiliation: University of Ulsan
+    team:
+      - name: Dakyeong Yoon
+
+  - name: OFBGlove
+    event: UIST 2025 Student Innovation Contest
+    paper: https://drive.google.com/file/d/1GhLab4hw1eEhPCglk8IqG9j8SHA8dFBb/view?usp=sharing
+    description: >-
+      A fingertip-free glove that turns speech and sounds into six-dot Braille
+      vibrations in real time, and turns button presses back into speech, for
+      two-way communication in deafblind contexts.
+    affiliation: KAIST
+    team:
+      - name: Jaeyun Kim
+
+  - name: GRASP
+    event: UIST 2025 Student Innovation Contest
+    paper: https://drive.google.com/file/d/1T6NkDvdBrW4U_MvJcUaR3LqZ2t6AOZC2/view?usp=sharing
+    description: >-
+      A low-cost, voice-controlled prosthetic hand that reproduces a range of human
+      grips and finger movements for below-elbow amputees.
+    affiliation: IISER Bhopal
+    team:
+      - name: Katyayni Pandey
+
+  # UT Social Impact BuildFest 2025
+
+  - name: Feel Lit
+    event: UT Social Impact BuildFest 2025
+    description: >-
+      An e-book and audiobook companion that lets readers feel a character's heartbeat
+      in real time, with accessibility features and in-app tools to learn about and
+      act on banned books.
+    team:
+      - name: Jaxon Dial
+      - name: Mark Keubel
+      - name: Jiyi Liu
+      - name: Sophia Dargahi
+
+  - name: Pathos (Team Axos)
+    event: UT Social Impact BuildFest 2025
+    description: >-
+      An interactive exhibit where students annotate passages from banned books, and
+      their reactions become haptic tracks of color, temperature, and vibration that
+      future readers can feel.
+    team:
+      - name: Alana Lee
+      - name: Cammi Tran
+      - name: Anooshka Erusu
+      - name: Helen Nguyen
+      - name: Madeleine Lee
+
+  - name: The Reactor (Team Lorax)
+    event: UT Social Impact BuildFest 2025
+    description: >-
+      A wristband for early readers that listens as kids read aloud and answers words
+      like "cold" or "warm" with matching temperature, light, and vibration.
+    team:
+      - name: Austin Tang
+      - name: Kaolyn Roberts
+      - name: Hanna Yamada
+      - name: Ocean Reilly
+      - name: Sana Virani
+
+  - name: The Book Hunt
+    event: UT Social Impact BuildFest 2025
+    description: >-
+      An exhibit that casts visitors as agents of a censoring regime. Heat, red light,
+      and intense vibration fade to calm as they reach a banned book, and they leave
+      with resources to challenge book bans locally.
+    team:
+      - name: Anna Iskra
+      - name: Taylor Whitley
+      - name: Jaden George
+      - name: Thomas Ybarra
+      - name: Ngoc Khanh Linh Nguyen
+
+  - name: Thera Suite
+    event: UT Social Impact BuildFest 2025
+    description: >-
+      Wearables that use heat, cooling, vibration, and light therapy to ease the strain
+      of long reading and typing sessions, so people with repetitive-strain pain can
+      spend more time in libraries.
+    team:
+      - name: Aidan Cournoyer
+      - name: Nico Casaca-Watkins
+      - name: Blake Ragsdale
+      - name: Ren Daley
+      - name: Shreyas Baranga
+
+  - name: Tango's Egg
+    event: UT Social Impact BuildFest 2025
+    description: >-
+      A hand-held egg that warms, vibrates, and cracks with sound as it hatches,
+      letting readers feel the story of the frequently banned And Tango Makes Three.
+    team:
+      - name: Kayla Tran
+      - name: Morgan Kuang
+      - name: Ruobin Huang
+      - name: James Dye
+      - name: Padmini Narumanchi
+
+  - name: KINNECT
+    event: UT Social Impact BuildFest 2025
+    description: >-
+      A wearable and split-screen reading app that shows a story in two languages side
+      by side, with shared vibration, light, heat, and sound, helping families reconnect
+      through a heritage language.
+    team:
+      - name: Nicholas Peasley
+      - name: Aparna Shah
+      - name: Franchesca Untalan
+      - name: Katie Feng
+      - name: Shriya Venkataraman
+
+  - name: On Dev
+    event: UT Social Impact BuildFest 2025
+    description: >-
+      An AR reading aid for blind, low-vision, and dyslexic readers that scans book
+      pages, reads them aloud in manageable chunks, and adds temperature and color
+      feedback.
+    team:
+      - name: Daniel Liam
+      - name: Enoch Zhu
+      - name: Dev Shroff
+      - name: Mason Hallmark
+      - name: Rafay Bughio
+
+  - name: Mybrary
+    event: UT Social Impact BuildFest 2025
+    description: >-
+      A private, wheelchair-accessible reading pod that works like a mini 4D cinema,
+      adding soundscapes and motion effects to any title, including banned books.
+    team:
+      - name: Ritika Banepali
+      - name: Paawan Desai
+      - name: Doreen Otaru
+      - name: Siena Theivagt
+      - name: Daniel Hanna
