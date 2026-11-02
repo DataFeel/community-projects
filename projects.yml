@@ -33,7 +33,6 @@ projects:
       A sword-fighting game built for blind and low-vision players, where unseen
       monsters are tracked through 3D audio and touch. Four DataFeel Dots on the ribs,
       chest, and wrist buzz toward the enemy and heat up as it closes in.
-    featured: true
     team:
       - name: MarkymarkLee
         github: MarkymarkLee
@@ -56,7 +55,6 @@ projects:
     track: Touch
     description: >-
       Feel cars behind you and turn cues on your wrists while biking.
-    featured: true
     team:
       - name: Raymond Mak
         github: raymondymmak
@@ -76,7 +74,7 @@ projects:
 
   - name: SyncFeel
     event: UIST 2025 Student Innovation Contest
-    # paper: copy the extended abstract link from the contest sheet
+    paper: https://drive.google.com/file/d/1UCeFLymUgJbMlC3zeXD0z-mvc1IqwrpA/view
     description: >-
       An untethered two-Dot bracelet that pulses vibration, light, and heat in rhythm
       to help the wearer focus during deep work or reset during breaks.
@@ -86,7 +84,7 @@ projects:
 
   - name: ElaStick
     event: UIST 2025 Student Innovation Contest
-    # paper: copy the extended abstract link from the contest sheet
+    paper: https://drive.google.com/file/d/1LxdOdz47990w-PqiofTOqBZ-I7Svchz2/view
     description: >-
       A modular stick controller built around DataFeel Dots and elastic parts that
       senses pushing, tilting, pulling, and twisting, and answers with sound,
@@ -97,7 +95,7 @@ projects:
 
   - name: ModalPlayground
     event: UIST 2025 Student Innovation Contest
-    # paper: copy the extended abstract link from the contest sheet
+    paper: https://drive.google.com/file/d/1Oj-Ijmv8R7-1k_nj3q2XXlvLZIUmWm-u/view
     description: >-
       A collaborative tool for painting haptic zones onto a real room by walking
       through it. Indoor positioning tracks designers and visitors, and DataFeel Dots
@@ -138,7 +136,6 @@ projects:
     team:
       - name: Yuma Kyogoku
 
-  # confirm
   - name: SkyTouch
     event: UIST 2025 Student Innovation Contest
     paper: https://drive.google.com/file/d/16LAE0AMR0okB1koWNar_XIgVFXnMD3Jn/view?usp=sharing
@@ -172,7 +169,7 @@ projects:
 
   - name: HapticAudio Wear
     event: UIST 2025 Student Innovation Contest
-    # paper: copy the extended abstract link from the contest sheet
+    paper: https://drive.google.com/file/d/1DQEBmdi2ska-gdHcdDCXvef2IOefVl8g/view
     description: >-
       Inspired by singing bowls, it turns the sound of a struck or rubbed bowl into
       vibration and warmth that travel across the body to draw attention inward.
@@ -225,7 +222,7 @@ projects:
 
   - name: ShoulderTap
     event: UIST 2025 Student Innovation Contest
-    # paper: copy the extended abstract link from the contest sheet
+    paper: https://drive.google.com/file/d/1I1i1uAdbFz-60QEfNQ5pIZKFXchzhhGK/view
     description: >-
       A shoulder-worn navigation aid for people with visual impairments. A camera
       reads the surroundings, and vibration and heat across the shoulders signal the
@@ -269,6 +266,7 @@ projects:
 
   - name: Feel Lit
     event: UT Social Impact BuildFest 2025
+    repo: jil12/BuildFestTeam10
     description: >-
       An e-book and audiobook companion that lets readers feel a character's heartbeat
       in real time, with accessibility features and in-app tools to learn about and
